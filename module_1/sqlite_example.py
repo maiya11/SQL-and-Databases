@@ -2,19 +2,25 @@
 import sqlite3
 import queries as q
 
-# Step 1 - connect to database
-connection = sqlite3.connect('rpg_db.sqlite3')
+# DB Connect function
 
-# Step 2 - make the "cursor" - an intermediary to access the database
-cursor = connection.cursor()
 
-# Step 3 - write a query
-# (see queries.py file)
+def connect_to_db(db_name='rpg_db.sqlite3'):
+    return sqlite3.connect(db_name)
 
-# Step 4 - execute the query on the cursor and fetch the results
-# "pulling the results from the cursor"
-cursor.execute(q.SELECT_ALL)
-results = cursor.fetchall()
+
+def execute_query(connection, query):
+    # Make the "cursor"
+    cursor = connection.cursor()
+
+    # Execute the query
+    cursor.execute(query)
+
+    # Pull (and return) the results
+    return cursor.fetchall()
+
 
 if __name__ == '__main__':
+    connection = connect_to_db()
+    results = execute_query(connection, q.SELECT_ALL)
     print(results[:5])
