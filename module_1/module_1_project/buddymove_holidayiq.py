@@ -1,6 +1,6 @@
 import pandas as pd
 import sqlite3
-import queries as q
+from queries import QUERY_LIST
 
 
 def connect_to_db(db_name='buddymove_holidayiq.sqlite3'):
@@ -10,19 +10,23 @@ def connect_to_db(db_name='buddymove_holidayiq.sqlite3'):
 # df = pd.read_csv('buddymove_holidayiq.csv')
 # df.to_sql(name='review', con=connect_to_db())
 
+cursor = connect_to_db().cursor()
+
 
 def execute_query(connection, query):
-    # Make the "cursor"
-    cursor = connection.cursor()
-
-    # Execute the query
     cursor.execute(query)
-
-    # Pull (and return) the results
     return cursor.fetchall()
+
+
+def execute_multiple_queries(cursor, queries):
+    answers = {}
+    for index, query in enumerate():
+        answers[index] = execute_query(cursor, query)
+    return answers
 
 
 if __name__ == '__main__':
     connection = connect_to_db()
-    results = execute_query(connection, q.NUM_ROWS)
-    print(results[:5])
+    answers = execute_multiple_queries(cursor, QUERY_LIST)
+    for key, value in enumerate(answers.values()):
+        print(f'{key}: {value}')

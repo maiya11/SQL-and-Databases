@@ -18,3 +18,5 @@ SELECT	AVG(Sports) AS avg_sports,
 	AVG(Picnic) AS avg_picnic
 FROM review;
 '''
+
+QUERY_LIST = [NUM_ROWS, NUM_USERS, AVERAGES]
