@@ -1,4 +1,4 @@
 GET_CHARACTERS = '''
-SELECT  character_id, name
+SELECT  *
 FROM    charactercreator_character;
 '''

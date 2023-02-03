@@ -22,5 +22,5 @@ def execute_query(connection, query):
 
 if __name__ == '__main__':
     connection = connect_to_db()
-    results = execute_query(connection, q.SELECT_ALL)
-    print(results[:5])
+    results = execute_query(connection, q.GET_CHARACTERS)
+    print(results[:2])
