@@ -4,6 +4,4 @@ Most modern data is generated automatically by human interaction with a web-back
 
 So, what is a database? A place for data! If it’s relational, it’s actually still pretty close to that rows and columns picture, though with some important additional functionality. These databases are commonly accessed using SQL - Structured Query Language - a standard based on relational algebra, and a useful tool known not just by data scientists but by software engineers, MBAs, and more.
 
-If it’s so-called “NoSQL”, then it’s most likely a document-oriented database (or document store) - which, despite the glamor, is essentially a bunch of key-value pairs. What key-value pair object are you already familiar with? Python dicts!
-
-In this sprint, we will learn about both of the above paradigms, and how the separation between them is not as bright a line as you may think.
+If it’s so-called “NoSQL”, then it’s most likely a document-oriented database (or document store) - which, despite the glamor, is essentially a bunch of key-value pairs. 
